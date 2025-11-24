@@ -30,17 +30,17 @@ dev = [
 ]
 
 [project.urls]
-Repository = "https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }}"
-BugTracker = "https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }}/issues"
-Documentation = "https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }}/wiki"
+Repository = "https://github.com/wouterverweirder/comfyui_live_input_stream"
+BugTracker = "https://github.com/wouterverweirder/comfyui_live_input_stream/issues"
+Documentation = "https://github.com/wouterverweirder/comfyui_live_input_stream/wiki"
 
 
 [tool.comfy]
-PublisherId = "wouterverweirder"
+PublisherId = "wouter"
 DisplayName = "Comfyui Live Input Stream"
 Icon = ""
 Tags = []
-Repository = "https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }}"
+Repository = "https://github.com/wouterverweirder/comfyui_live_input_stream"
 
 includes = []
 
