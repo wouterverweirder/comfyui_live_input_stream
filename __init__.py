@@ -13,4 +13,7 @@ __version__ = "0.0.1"
 from .src.comfyui_live_input_stream.nodes import NODE_CLASS_MAPPINGS
 from .src.comfyui_live_input_stream.nodes import NODE_DISPLAY_NAME_MAPPINGS
 
+# Import routes to register them with the server
+from .src.comfyui_live_input_stream import routes
+
 WEB_DIRECTORY = "./web"
