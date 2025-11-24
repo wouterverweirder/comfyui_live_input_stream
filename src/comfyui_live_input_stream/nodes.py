@@ -12,6 +12,9 @@ class WebcamCaptureAdvanced(nodes.LoadImage):
         return {
             "required": {
                 "device": ("COMBO", {"options": [], "default": ""}),
+                "desired_width": ("INT", {"default": 1920, "min": 1, "max": MAX_RESOLUTION, "step": 1}),
+                "desired_height": ("INT", {"default": 1080, "min": 1, "max": MAX_RESOLUTION, "step": 1}),
+                "frame_rate": ("INT", {"default": 30, "min": 1, "max": 120, "step": 1}),
                 "image": ("WEBCAM_ADVANCED", {}),
                 "trim_left": ("INT", {"default": 0, "min": 0, "max": MAX_RESOLUTION, "step": 1}),
                 "trim_right": ("INT", {"default": 0, "min": 0, "max": MAX_RESOLUTION, "step": 1}),
@@ -45,8 +48,8 @@ class ScreenCaptureAdvanced(nodes.LoadImage):
     def INPUT_TYPES(s):
         return {
             "required": {
-                "width": ("INT", {"default": 1920, "min": 1, "max": MAX_RESOLUTION, "step": 1}),
-                "height": ("INT", {"default": 1080, "min": 1, "max": MAX_RESOLUTION, "step": 1}),
+                "desired_width": ("INT", {"default": 1920, "min": 1, "max": MAX_RESOLUTION, "step": 1}),
+                "desired_height": ("INT", {"default": 1080, "min": 1, "max": MAX_RESOLUTION, "step": 1}),
                 "frame_rate": ("INT", {"default": 30, "min": 1, "max": 120, "step": 1}),
                 "display_surface": (["monitor", "window", "browser"], {"default": "monitor"}),
                 "image": ("SCREEN_ADVANCED", {}),

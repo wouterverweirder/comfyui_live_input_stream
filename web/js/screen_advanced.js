@@ -20,8 +20,8 @@ app.registerExtension({
       return
     }
 
-    const widthWidget = node.widgets.find((w) => w.name === 'width')
-    const heightWidget = node.widgets.find((w) => w.name === 'height')
+    const widthWidget = node.widgets.find((w) => w.name === 'desired_width')
+    const heightWidget = node.widgets.find((w) => w.name === 'desired_height')
     const frameRateWidget = node.widgets.find((w) => w.name === 'frame_rate')
     const displaySurfaceWidget = node.widgets.find((w) => w.name === 'display_surface')
     const screenWidget = node.widgets.find((w) => w.name === 'image')

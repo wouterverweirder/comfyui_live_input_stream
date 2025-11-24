@@ -21,6 +21,9 @@ app.registerExtension({
     }
 
     const deviceWidget = node.widgets.find((w) => w.name === 'device')
+    const widthWidget = node.widgets.find((w) => w.name === 'desired_width')
+    const heightWidget = node.widgets.find((w) => w.name === 'desired_height')
+    const frameRateWidget = node.widgets.find((w) => w.name === 'frame_rate')
     const cameraWidget = node.widgets.find((w) => w.name === 'image')
     const trimLeftWidget = node.widgets.find((w) => w.name === 'trim_left')
     const trimRightWidget = node.widgets.find((w) => w.name === 'trim_right')
@@ -80,17 +83,26 @@ app.registerExtension({
           tracks.forEach((track) => track.stop())
         }
         
-        // Request highest resolution supported by the camera
+        // Request resolution and frame rate from widget values
         const videoConstraints = {
           deviceId: deviceWidget.value ? { exact: deviceWidget.value } : undefined,
-          width: { ideal: 4096 },
-          height: { ideal: 2160 }
+          width: { ideal: widthWidget.value },
+          height: { ideal: heightWidget.value },
+          frameRate: { ideal: frameRateWidget.value }
         }
         
         const stream = await navigator.mediaDevices.getUserMedia({
           video: videoConstraints,
           audio: false
         })
+        
+        // Update the device widget with the actual device ID being used
+        const videoTrack = stream.getVideoTracks()[0]
+        const settings = videoTrack.getSettings()
+        if (settings.deviceId && !deviceWidget.value) {
+          deviceWidget.value = settings.deviceId
+        }
+        
         container.replaceChildren(videoCanvas)
 
         // setTimeout(() => res(container), 500)
@@ -161,9 +173,15 @@ app.registerExtension({
         ...deviceWidget.options,
         values: devices.map(device => (device.deviceId )),
       }
-      deviceWidget.callback = async () => {
+      const reloadOnChange = async () => {
         await loadVideo()
       }
+      
+      deviceWidget.callback = reloadOnChange
+      widthWidget.callback = reloadOnChange
+      heightWidget.callback = reloadOnChange
+      frameRateWidget.callback = reloadOnChange
+      
       await loadVideo()
       step()
     }
