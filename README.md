@@ -1,9 +1,6 @@
-# Comfyui Live Input Stream
+# ComfyUI Live Input Stream
 
-Webcam & Screen Share Input Nodes with Cropping and Live Preview of the Cropped Stream
-
-> [!NOTE]
-> This projected was created with a [cookiecutter](https://github.com/Comfy-Org/cookiecutter-comfy-extension) template. It helps you start writing custom nodes without worrying about the Python setup.
+Real-time video input nodes for ComfyUI that enable webcam capture, screen sharing, and MJPEG stream processing with live preview and cropping capabilities.
 
 ## Quickstart
 
@@ -12,56 +9,46 @@ Webcam & Screen Share Input Nodes with Cropping and Live Preview of the Cropped 
 1. Look up this extension in ComfyUI-Manager. If you are installing manually, clone this repository under `ComfyUI/custom_nodes`.
 1. Restart ComfyUI.
 
-# Features
+## Features
 
-- A list of features
+This extension provides three powerful input nodes for working with live video streams in ComfyUI:
 
-## Develop
+### 🎥 Webcam Live Input Stream
 
-To install the dev dependencies and pre-commit (will run the ruff hook), do:
+Capture live video from your webcam with full control and preview.
 
-```bash
-cd comfyui_live_input_stream
-pip install -e .[dev]
-pre-commit install
-```
+![Webcam Live Input Stream](assets/screencapture-webcam.gif)
 
-The `-e` flag above will result in a "live" install, in the sense that any changes you make to your node extension will automatically be picked up the next time you run ComfyUI.
+- **Device Selection**: Choose from available webcam devices
+- **Live Preview**: See your webcam feed directly in the ComfyUI interface
+- **Real-time Cropping**: Trim left, right, top, and bottom with live preview of cropped area
+- **High Resolution Support**: Automatically requests the highest resolution available from your camera
 
-## Publish to Github
+### 🖥️ Screen Live Input Stream
 
-Install Github Desktop or follow these [instructions](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent) for ssh.
+Capture and process your screen, windows, or browser tabs in real-time.
 
-1. Create a Github repository that matches the directory name. 
-2. Push the files to Git
-```
-git add .
-git commit -m "project scaffolding"
-git push
-``` 
+![Screen Live Input Stream](assets/screencapture-screenshare.gif)
 
-## Writing custom nodes
+- **Flexible Source Selection**: Choose between monitor, window, or browser tab capture
+- **Resolution Control**: Set ideal width and height constraints (default 1920x1080)
+- **Frame Rate Control**: Adjust frame rate from 1-120 fps (default 30 fps)
+- **Live Preview**: View the captured screen with trimming applied in real-time
+- **Real-time Cropping**: Trim any edges with live preview
 
-An example custom node is located in [node.py](src/comfyui_live_input_stream/nodes.py). To learn more, read the [docs](https://docs.comfy.org/essentials/custom_node_overview).
+### 📡 MJPEG Stream Live Input Stream
 
+Connect to external MJPEG streams from IP cameras, video servers, or other sources.
 
-## Tests
+![MJPEG Stream Live Input Stream](assets/screencapture-mjpg.gif)
 
-This repo contains unit tests written in Pytest in the `tests/` directory. It is recommended to unit test your custom node.
+- **URL Input**: Simply enter any MJPEG stream URL
+- **CORS Proxy**: Built-in Python proxy layer automatically handles CORS restrictions
+- **Real-time Cropping**: Trim any edges with live preview
 
-- [build-pipeline.yml](.github/workflows/build-pipeline.yml) will run pytest and linter on any open PRs
-- [validate.yml](.github/workflows/validate.yml) will run [node-diff](https://github.com/Comfy-Org/node-diff) to check for breaking changes
+## Use Cases
 
-## Publishing to Registry
-
-If you wish to share this custom node with others in the community, you can publish it to the registry. We've already auto-populated some fields in `pyproject.toml` under `tool.comfy`, but please double-check that they are correct.
-
-You need to make an account on https://registry.comfy.org and create an API key token.
-
-- [ ] Go to the [registry](https://registry.comfy.org). Login and create a publisher id (everything after the `@` sign on your registry profile). 
-- [ ] Add the publisher id into the pyproject.toml file.
-- [ ] Create an api key on the Registry for publishing from Github. [Instructions](https://docs.comfy.org/registry/publishing#create-an-api-key-for-publishing).
-- [ ] Add it to your Github Repository Secrets as `REGISTRY_ACCESS_TOKEN`.
-
-A Github action will run on every git push. You can also run the Github action manually. Full instructions [here](https://docs.comfy.org/registry/publishing). Join our [discord](https://discord.com/invite/comfyorg) if you have any questions!
-
+- **Webcam Effects**: Apply ComfyUI image processing to live webcam feeds
+- **Screen Recording Workflows**: Process screen captures with AI models in real-time. You could for example use this to capture a drawing application window and have ComfyUI enhance or modify the drawing live as you create it.
+- **IP Camera Integration**: Connect security cameras or video streams to ComfyUI
+- **Live Demonstrations**: Capture and process live content for presentations
