@@ -6,4 +6,4 @@ recursive-exclude * *.py[co]
 
 recursive-include docs *.rst conf.py Makefile make.bat *.jpg *.png *.gif
 
-graft src/comfyui_webcam_advanced/web
+graft src/comfyui_live_input_stream/web

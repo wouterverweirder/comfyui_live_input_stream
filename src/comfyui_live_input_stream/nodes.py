@@ -40,10 +40,10 @@ class WebcamCaptureAdvanced(nodes.LoadImage):
 # A dictionary that contains all nodes you want to export with their names
 # NOTE: names should be globally unique
 NODE_CLASS_MAPPINGS = {
-    "be.aboutme.comfyui.webcam_advanced.webcam_capture_advanced": WebcamCaptureAdvanced
+    "be.aboutme.comfyui.live_input_stream.webcam_capture_advanced": WebcamCaptureAdvanced
 }
 
 # A dictionary that contains the friendly/humanly readable titles for the nodes
 NODE_DISPLAY_NAME_MAPPINGS = {
-    "be.aboutme.comfyui.webcam_advanced.webcam_capture_advanced": "Webcam Capture Advanced"
+    "be.aboutme.comfyui.live_input_stream.webcam_capture_advanced": "Webcam Capture Advanced"
 }

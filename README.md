@@ -1,6 +1,6 @@
-# ComfyUI Webcam Advanced
+# Comfyui Live Input Stream
 
-Webcam Node With Advanced Live Preview, allowing to see a live preview of cropping and masking.
+Webcam & Screen Share Input Nodes with Cropping and Live Preview of the Cropped Stream
 
 > [!NOTE]
 > This projected was created with a [cookiecutter](https://github.com/Comfy-Org/cookiecutter-comfy-extension) template. It helps you start writing custom nodes without worrying about the Python setup.
@@ -21,7 +21,7 @@ Webcam Node With Advanced Live Preview, allowing to see a live preview of croppi
 To install the dev dependencies and pre-commit (will run the ruff hook), do:
 
 ```bash
-cd comfyui_webcam_advanced
+cd comfyui_live_input_stream
 pip install -e .[dev]
 pre-commit install
 ```
@@ -42,7 +42,7 @@ git push
 
 ## Writing custom nodes
 
-An example custom node is located in [node.py](src/comfyui_webcam_advanced/nodes.py). To learn more, read the [docs](https://docs.comfy.org/essentials/custom_node_overview).
+An example custom node is located in [node.py](src/comfyui_live_input_stream/nodes.py). To learn more, read the [docs](https://docs.comfy.org/essentials/custom_node_overview).
 
 
 ## Tests

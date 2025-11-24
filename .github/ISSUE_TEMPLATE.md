@@ -1,4 +1,4 @@
-* comfyui_webcam_advanced version:
+* comfyui_live_input_stream version:
 * Python version:
 * Operating System:
 

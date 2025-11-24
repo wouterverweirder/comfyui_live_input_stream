@@ -2,7 +2,7 @@ import { app } from "../../../scripts/app.js"
 import { api } from "../../../scripts/api.js"
 
 app.registerExtension({ 
-	name: "be.aboutme.comfyui.webcam_advanced",
+	name: "be.aboutme.comfyui.live_input_stream",
 	async setup() { 
 	},
   getCustomWidgets() {
@@ -16,7 +16,7 @@ app.registerExtension({
     }
   },
   async nodeCreated(node) {
-    if (node.constructor.comfyClass !== "be.aboutme.comfyui.webcam_advanced.webcam_capture_advanced") {
+    if (node.constructor.comfyClass !== "be.aboutme.comfyui.live_input_stream.webcam_capture_advanced") {
       return
     }
 

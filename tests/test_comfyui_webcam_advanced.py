@@ -1,9 +1,9 @@
 #!/usr/bin/env python
 
-"""Tests for `comfyui_webcam_advanced` package."""
+"""Tests for `comfyui_live_input_stream` package."""
 
 import pytest
-from src.comfyui_webcam_advanced.nodes import Example
+from src.comfyui_live_input_stream.nodes import Example
 
 @pytest.fixture
 def example_node():

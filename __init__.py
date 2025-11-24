@@ -1,4 +1,4 @@
-"""Top-level package for comfyui_webcam_advanced."""
+"""Top-level package for comfyui_live_input_stream."""
 
 __all__ = [
     "NODE_CLASS_MAPPINGS",
@@ -10,7 +10,7 @@ __author__ = """Wouter Verweirder"""
 __email__ = "wouter.verweirder@gmail.com"
 __version__ = "0.0.1"
 
-from .src.comfyui_webcam_advanced.nodes import NODE_CLASS_MAPPINGS
-from .src.comfyui_webcam_advanced.nodes import NODE_DISPLAY_NAME_MAPPINGS
+from .src.comfyui_live_input_stream.nodes import NODE_CLASS_MAPPINGS
+from .src.comfyui_live_input_stream.nodes import NODE_DISPLAY_NAME_MAPPINGS
 
 WEB_DIRECTORY = "./web"

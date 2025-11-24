@@ -1,1 +1,1 @@
-"""Unit test package for comfyui_webcam_advanced."""
+"""Unit test package for comfyui_live_input_stream."""

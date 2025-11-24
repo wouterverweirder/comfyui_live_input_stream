@@ -3,9 +3,9 @@ requires = ["setuptools>=70.0"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "comfyui_webcam_advanced"
+name = "comfyui_live_input_stream"
 version = "0.0.1"
-description = "Webcam Node With Advanced Live Preview, allowing to see a live preview of cropping and masking."
+description = "Webcam & Screen Share Input Nodes with Cropping and Live Preview of the Cropped Stream"
 authors = [
   {name = "Wouter Verweirder", email = "wouter.verweirder@gmail.com"}
 ]
@@ -37,7 +37,7 @@ Documentation = "https://github.com/{{ cookiecutter.github_username }}/{{ cookie
 
 [tool.comfy]
 PublisherId = "wouterverweirder"
-DisplayName = "ComfyUI Webcam Advanced"
+DisplayName = "Comfyui Live Input Stream"
 Icon = ""
 Tags = []
 Repository = "https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }}"
