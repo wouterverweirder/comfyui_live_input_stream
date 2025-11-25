@@ -8,7 +8,7 @@ __all__ = [
 
 __author__ = """Wouter Verweirder"""
 __email__ = "wouter.verweirder@gmail.com"
-__version__ = "0.0.1"
+__version__ = "0.0.2"
 
 from .src.comfyui_live_input_stream.nodes import NODE_CLASS_MAPPINGS
 from .src.comfyui_live_input_stream.nodes import NODE_DISPLAY_NAME_MAPPINGS
