@@ -173,6 +173,10 @@ app.registerExtension({
       const devices = await listVideoDevices()
       deviceWidget.options = {
         ...deviceWidget.options,
+        getOptionLabel: (value) => {
+          const device = devices.find((d) => d.deviceId === value)
+          return device ? device.label || device.deviceId : value || ''
+        },
         values: devices.map(device => (device.deviceId )),
       }
       const reloadOnChange = async () => {
