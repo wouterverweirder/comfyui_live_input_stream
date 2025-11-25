@@ -17,7 +17,7 @@ This extension provides three powerful input nodes for working with live video s
 
 Capture live video from your webcam with full control and preview.
 
-![Webcam Live Input Stream](assets/screencapture-webcam.gif)
+![Webcam Live Input Stream](assets/screenflow-webcam-stream.gif)
 
 - **Device Selection**: Choose from available webcam devices
 - **Live Preview**: See your webcam feed directly in the ComfyUI interface
@@ -28,7 +28,7 @@ Capture live video from your webcam with full control and preview.
 
 Capture and process your screen, windows, or browser tabs in real-time.
 
-![Screen Live Input Stream](assets/screencapture-screenshare.gif)
+![Screen Live Input Stream](assets/screenflow-screenshare-stream-compressed.gif)
 
 - **Flexible Source Selection**: Choose between monitor, window, or browser tab capture
 - **Resolution Control**: Set ideal width and height constraints (default 1920x1080)
@@ -40,7 +40,7 @@ Capture and process your screen, windows, or browser tabs in real-time.
 
 Connect to external MJPEG streams from IP cameras, video servers, or other sources.
 
-![MJPEG Stream Live Input Stream](assets/screencapture-mjpg.gif)
+![MJPEG Stream Live Input Stream](assets/screenflow-mjpeg-stream.gif)
 
 - **URL Input**: Simply enter any MJPEG stream URL
 - **CORS Proxy**: Built-in Python proxy layer automatically handles CORS restrictions
