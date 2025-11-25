@@ -11,7 +11,9 @@ app.registerExtension({
         const container = document.createElement('div')
         container.style.background = 'rgba(0,0,0,0.25)'
         container.style.textAlign = 'center'
-        return { widget: node.addDOMWidget(inputName, 'SCREEN_ADVANCED', container) }
+        return { widget: node.addDOMWidget(inputName, 'SCREEN_ADVANCED', container, {
+          getMinHeight: () => 200
+        }) }
       }
     }
   },
