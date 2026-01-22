@@ -11,7 +11,7 @@ class WebcamCaptureAdvanced(nodes.LoadImage):
     def INPUT_TYPES(s):
         return {
             "required": {
-                "device": ("COMBO", {"options": [], "default": ""}),
+                "device": ("STRING", {"default": ""}),
                 "desired_width": ("INT", {"default": 1920, "min": 1, "max": MAX_RESOLUTION, "step": 1}),
                 "desired_height": ("INT", {"default": 1080, "min": 1, "max": MAX_RESOLUTION, "step": 1}),
                 "frame_rate": ("INT", {"default": 30, "min": 1, "max": 120, "step": 1}),

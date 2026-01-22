@@ -22,7 +22,7 @@ app.registerExtension({
       return
     }
 
-    const deviceWidget = node.widgets.find((w) => w.name === 'device')
+    let deviceWidget = node.widgets.find((w) => w.name === 'device')
     const widthWidget = node.widgets.find((w) => w.name === 'desired_width')
     const heightWidget = node.widgets.find((w) => w.name === 'desired_height')
     const frameRateWidget = node.widgets.find((w) => w.name === 'frame_rate')
@@ -171,19 +171,65 @@ app.registerExtension({
       const stream = await navigator.mediaDevices.getUserMedia({ video: true, audio: false })
       stream.getTracks().forEach((track) => track.stop())
       const devices = await listVideoDevices()
-      deviceWidget.options = {
-        ...deviceWidget.options,
-        getOptionLabel: (value) => {
-          const device = devices.find((d) => d.deviceId === value)
-          return device ? device.label || device.deviceId : value || ''
+      
+      // Build mappings between device IDs and labels
+      const deviceIdToLabel = {}
+      const deviceLabelToId = {}
+      const deviceLabels = []
+      
+      devices.forEach(device => {
+        const label = device.label || device.deviceId
+        deviceIdToLabel[device.deviceId] = label
+        deviceLabelToId[label] = device.deviceId
+        deviceLabels.push(label)
+      })
+      
+      // Store current value (device ID) and convert to label for display
+      const currentDeviceId = deviceWidget.value
+      const currentLabel = deviceIdToLabel[currentDeviceId] || deviceLabels[0] || ''
+      const widgetIndex = node.widgets.indexOf(deviceWidget)
+      
+      // Remove the old string widget
+      node.widgets.splice(widgetIndex, 1)
+      
+      // Create a new combo widget that displays labels
+      const newDeviceWidget = node.addWidget(
+        "combo",
+        "device",
+        currentLabel,
+        async (value) => {
+          await loadVideo()
         },
-        values: devices.map(device => (device.deviceId )),
+        { 
+          values: deviceLabels,
+          serialize: true
+        }
+      )
+      
+      // Move the new widget to the original position
+      node.widgets.splice(node.widgets.indexOf(newDeviceWidget), 1)
+      node.widgets.splice(widgetIndex, 0, newDeviceWidget)
+      
+      // Override serializeValue to return the device ID instead of the label
+      newDeviceWidget.serializeValue = () => {
+        return deviceLabelToId[newDeviceWidget.value] || newDeviceWidget.value
       }
+      
+      // Create a proxy object so loadVideo gets the device ID, not the label
+      deviceWidget = {
+        get value() {
+          return deviceLabelToId[newDeviceWidget.value] || newDeviceWidget.value
+        },
+        set value(v) {
+          // If setting by device ID, convert to label for display
+          newDeviceWidget.value = deviceIdToLabel[v] || v
+        }
+      }
+      
       const reloadOnChange = async () => {
         await loadVideo()
       }
       
-      deviceWidget.callback = reloadOnChange
       widthWidget.callback = reloadOnChange
       heightWidget.callback = reloadOnChange
       frameRateWidget.callback = reloadOnChange
