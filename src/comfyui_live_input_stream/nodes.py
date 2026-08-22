@@ -1,5 +1,4 @@
 import nodes
-import folder_paths
 
 MAX_RESOLUTION = nodes.MAX_RESOLUTION
 
@@ -33,7 +32,7 @@ class WebcamCaptureAdvanced(nodes.LoadImage):
     CATEGORY = "Live Input Stream"
 
     def load_capture(self, image, **kwargs):
-        return super().load_image(folder_paths.get_annotated_filepath(image))
+        return super().load_image(image)
 
     @classmethod
     def IS_CHANGED(cls, image, **kwargs):
@@ -65,7 +64,7 @@ class ScreenCaptureAdvanced(nodes.LoadImage):
     CATEGORY = "Live Input Stream"
 
     def load_capture(self, image, **kwargs):
-        return super().load_image(folder_paths.get_annotated_filepath(image))
+        return super().load_image(image)
 
     @classmethod
     def IS_CHANGED(cls, image, **kwargs):
@@ -94,7 +93,7 @@ class MjpegStreamCaptureAdvanced(nodes.LoadImage):
     CATEGORY = "Live Input Stream"
 
     def load_capture(self, image, **kwargs):
-        return super().load_image(folder_paths.get_annotated_filepath(image))
+        return super().load_image(image)
 
     @classmethod
     def IS_CHANGED(cls, image, **kwargs):

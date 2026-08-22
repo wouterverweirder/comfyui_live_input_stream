@@ -161,12 +161,13 @@ app.registerExtension({
 
       // Upload image to temp storage
       const blob = await new Promise((r) => videoCanvas.toBlob(r))
-      const name = `${+new Date()}.png`
+      const name = `screencapture_${node.id}.png`
       const file = new File([blob], name)
       const body = new FormData()
       body.append('image', file)
       body.append('subfolder', 'screencapture')
       body.append('type', 'temp')
+      body.append('overwrite', 'true')
       const resp = await api.fetchApi('/upload/image', {
         method: 'POST',
         body
