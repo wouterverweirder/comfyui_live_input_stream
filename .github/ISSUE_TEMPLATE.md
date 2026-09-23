@@ -1,4 +1,4 @@
-* comfyui_live_input_stream version:
+* comfyui-penplotter version:
 * Python version:
 * Operating System:
 
